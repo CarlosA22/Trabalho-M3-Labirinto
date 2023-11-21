@@ -57,7 +57,7 @@ void criarMapa()
 
 }
 
-void imprimirMapa()
+/*void imprimirMapa()
 {
 	ifstream lab01;
 	lab01.open("lab01.txt");
@@ -106,6 +106,8 @@ void imprimirMapa()
 
 	lab01.close();
 }
+*/
+
 
 
 
