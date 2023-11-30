@@ -5,7 +5,6 @@ using namespace std;
 
 int main() {
 	int tam1 = 20, tam2 = 20;
-	//labFile >> tam1 >> tam2;
 
 	char map[20][20] =
 	{
@@ -30,7 +29,6 @@ int main() {
 		'X','_','X','_','_','_','_','X','_','_','_','_','_','_','_','_','_','_','_','X',
 		'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
 	};
-
 	// Print the original maze
 	cout << "Original Maze:" << endl;
 	printMaze(map, tam1, tam2);
@@ -64,6 +62,5 @@ int main() {
 
 	// Find and print the path
 	findPath(map, tam1, tam2, startRow, startCol, endRow, endCol);
-
 	return 0;
 }

@@ -2,22 +2,11 @@
 #define HEADER_H_INCLUDED
 
 #include <iostream>
-#include <windows.h> //cursor
-#include <conio.h>   //_getch
 #include <fstream>   //arquivo
-#include <stdlib.h>  //random
-#include <string>
 #include <queue>
 #include <utility> // pair
 
 using namespace std;
-
-void color(int colour)
-{
-
-    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(out, colour);
-}
 
 void printMaze(char m[20][20], int& tam1, int& tam2) {
     for (int i = 0; i < tam1; i++) {
