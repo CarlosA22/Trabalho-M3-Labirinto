@@ -4,57 +4,36 @@
 using namespace std;
 
 int main() {
-	ifstream labFile;
-	labFile.open("lab01.txt");
-
-	if (!labFile) {
-		cerr << "Error opening file!" << endl;
-		return 1;
-	}
-
 	int tam1 = 20, tam2 = 20;
 	//labFile >> tam1 >> tam2;
-
-	char maze[MAX_SIZE][MAX_SIZE];
 
 	char map[20][20] =
 	{
 		'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
-		'X',' ',' ','X',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','X','X','X',
-		' ',' ','X','X',' ','X','X','X','X','X','X','X','X','X','X','X',' ',' ','X','X',
-		'X',' ',' ',' ',' ','X','X',' ',' ',' ',' ','X',' ',' ',' ','X','X',' ','X','X',
-		'X','X','X','X','X','X','X','X',' ',' ',' ','X','X','X','X','X','X',' ','X','X',
-		'X',' ',' ',' ',' ',' ','X','X',' ',' ',' ',' ',' ',' ',' ',' ','X',' ','X','X',
-		'X',' ','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',' ','X','X',
-		'X',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','X','X',
-		'X','X','X','X','X','X',' ','X','X','X','X','X','X','X','X','X','X','X','X','X',
-		'X',' ','X',' ','X','X',' ','X',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','X',
-		'X',' ','X',' ','X','X',' ','X','X','X','X','X','X','X','X','X',' ','X','X','X', //Q
-		'X',' ','X',' ','X','X',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','X',
-		'X','X','X',' ','X','X','X','X','X','X','X','X','X',' ','X','X','X','X','X','X',
-		'X',' ',' ',' ',' ',' ',' ',' ',' ','X','X','X','X',' ','X',' ',' ',' ',' ','X',
-		'X',' ','X','X',' ','X','X','X',' ',' ',' ',' ',' ',' ','X',' ',' ',' ',' ','X',
-		'X',' ','X','X',' ','X',' ','X','X','X','X','X','X','X','X','X','X','X','X','X',
-		'X',' ','X',' ',' ','X',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',
-		'X','X','X',' ','X','X',' ','X','X','X','X','X','X','X','X','X','X','X','X','X',
-		'X',' ','X',' ',' ',' ',' ','X',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','X',
+		'X','_','_','X','_','_','_','_','_','_','_','_','_','_','_','_','_','X','X','X',
+		'_','_','X','X','_','X','X','X','X','X','X','X','X','X','X','X','_','_','X','X',
+		'X','_','_','_','_','X','X','_','_','_','_','X','_','_','_','X','X','_','X','X',
+		'X','X','X','X','X','X','X','X','_','_','_','X','X','X','X','X','X','_','X','X',
+		'X','_','_','_','_','_','X','X','_','_','_','_','_','_','_','_','X','_','X','X',
+		'X','_','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','_','X','X',
+		'X','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','X','X',
+		'X','X','X','X','X','X','_','X','X','X','X','X','X','X','X','X','X','X','X','X',
+		'X','_','X','_','X','X','_','X','_','_','_','_','_','_','_','_','_','_','_','X',
+		'X','_','X','_','X','X','_','X','X','X','X','X','X','X','X','X','_','X','X','X',//Q
+		'X','_','X','_','X','X','_','_','_','_','_','_','_','_','_','_','_','_','_','X',
+		'X','X','X','_','X','X','X','X','X','X','X','X','X','_','X','X','X','X','X','X',
+		'X','_','_','_','_','_','_','_','_','X','X','X','X','_','X','_','_','_','_','X',
+		'X','_','X','X','_','X','X','X','_','_','_','_','_','_','X','_','_','_','_','X',
+		'X','_','X','X','_','X','_','X','X','X','X','X','X','X','X','X','X','X','X','X',
+		'X','_','X','_','_','X','_','_','_','_','_','_','_','_','_','_','_','_','_','_',
+		'X','X','X','_','X','X','_','X','X','X','X','X','X','X','X','X','X','X','X','X',
+		'X','_','X','_','_','_','_','X','_','_','_','_','_','_','_','_','_','_','_','X',
 		'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
-	}
+	};
 
-		// Read the labyrinth from the file with debug output
-		/*for (int i = 0; i < tam1; i++) {
-			for (int j = 0; j < tam2; j++) {
-				labFile >> maze[i][j];
-			}
-			cout << endl; // Debug output
-		}
-
-		*/
-		//labFile.close();
-
-		// Print the original maze
+	// Print the original maze
 	cout << "Original Maze:" << endl;
-	printMaze(maze, tam1, tam2);
+	printMaze(map, tam1, tam2);
 
 	// Get user input for start and end positions (1-based indexing)
 	int startRow, startCol, endRow, endCol;
@@ -70,9 +49,6 @@ int main() {
 	endRow--;
 	endCol--;
 
-	// Debug output to print the content of the maze before user input
-	cout << "Maze Content:" << endl;
-	printMaze(maze, tam1, tam2);
 
 	// Check if the start and end positions are valid
 	if (!isValid(startRow, startCol, tam1, tam2) || !isValid(endRow, endCol, tam1, tam2)) {
@@ -81,15 +57,13 @@ int main() {
 	}
 
 	// Check if the start and end positions are free
-	if (!isFree(maze, startRow, startCol) || !isFree(maze, endRow, endCol)) {
+	if (!isFree(map, startRow, startCol) || !isFree(map, endRow, endCol)) {
 		cerr << "Start or end position is not free!" << endl;
 		return 1;
 	}
 
-
 	// Find and print the path
-	findPath(maze, tam1, tam2, startRow, startCol, endRow, endCol); // can't find path after 12 13.
+	findPath(map, tam1, tam2, startRow, startCol, endRow, endCol);
 
-	labFile.close();
 	return 0;
 }
